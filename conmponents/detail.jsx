@@ -1,14 +1,8 @@
-
-
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProducts } from "../../api/products";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/cartSclice";
-
-
-
-
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProducts } from '../api/products';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/productSlice';
 
 const Detail = () => {
   const { id } = useParams();
@@ -16,28 +10,25 @@ const Detail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const addProduct = (product) => {
-    dispatch(addToCart(product));
-  }
-
+  
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const products = await getProducts();
-        const foundProduct = products.find(product => product.id.toString() === id.toString()); 
+        const foundProduct = products.find(product => product.id.toString() === id.toString());
         if (foundProduct) {
-          setProduct(foundProduct); 
+          setProduct(foundProduct);
         } else {
           setError(new Error('Product not found'));
         }
       } catch (error) {
-        setError(error); 
+        setError(error);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
-    fetchProduct(); 
+    fetchProduct();
   }, [id]);
 
   if (loading) {
@@ -51,7 +42,7 @@ const Detail = () => {
   if (!product) {
     return <div>Product not found</div>;
   }
-  
+
   return (
     <div className="flex justify-center m-4">
       <div className="mx-auto my-8 mr-4">
@@ -62,7 +53,12 @@ const Detail = () => {
         <p className="mr-6">{product.description}</p>
         <div>
           <p className="mt-4 text-2xl text-green-700">Price: ${product.price}</p>
-          <button className="inline-flex border-0 bg-primaryy hover:bg-primary px-6 py-2 p-4 rounded-lg text-lg text-white focus:outline-none mt-4" onClick={() => addProduct(product)}>َAdd</button>
+          <button 
+            className="inline-flex border-0 bg-primaryy hover:bg-primary px-6 py-2 p-4 rounded-lg text-lg text-white focus:outline-none mt-4"
+            onClick={() => dispatch(addItem(product))}
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>
