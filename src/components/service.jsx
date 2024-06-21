@@ -1,4 +1,4 @@
-import { getProducts } from "../api/products";
+import { getProducts } from "../../api/products";
 
 export const productService = {
     getProduct: async () => {

@@ -2,11 +2,12 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import About from "../pages/about";
-import Layout from "../../conmponents/layout";
-import App from "../pages/product";
-import Home from "../../conmponents/home";
-import Cart from "../../conmponents/cart";
-import Detail from "../../conmponents/detail";
+import Layout from "../components/layout";
+import Detail from "../components/detail";
+import Home from "../components/home";
+import Products from "../pages/product";
+import CartSclice from "../redux/cartSclice";
+
 
   const router = createBrowserRouter([
     {
@@ -24,11 +25,11 @@ import Detail from "../../conmponents/detail";
         },
        {
          path: "/product",
-          element: <App/>,
+          element: <Products/>,
         },
         {
           path: "/cart",
-           element: <Cart/>,
+           element: <CartSclice/>,
          },
          {
           path: "/detail/:id",
