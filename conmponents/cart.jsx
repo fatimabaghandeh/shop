@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem, decreaseQuantity, addItem, clearCart } from '../store/productSlice';
@@ -7,46 +8,47 @@ const Cart = () => {
   const { items, totalQuantity, totalAmount } = useSelector(state => state.cart);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
+    <div className="p-6 bg-orange-100">
       {totalQuantity === 0 ? (
         <div className="text-center">Your cart is empty.</div>
       ) : (
-        <div>
+        <div className='flex'>
           <ul className="mb-6">
             {items.map(item => (
-              <li key={item.id} className="flex justify-between items-center mb-4">
+              <li key={item.id} className="flex justify-between items-center bg-white border p-4 rounded-lg m-4">
                 <div className="flex items-center">
-                  <img className="w-12 h-12 object-cover  " src={item.image} alt={item.title} /> {/* نمایش تصویر محصول با ابعاد مناسب */}
+                  <img className=" w-full max-h-36 object-contain" src={item.image} alt={item.title} />
                   <div>
                     <h3 className="text-xl">{item.title}</h3>
-                    <div className="text-gray-700"> ${item.totalPrice}</div>
+                  
                   </div>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center ">
+                <div className="text-gray-700 p-4"> ${item.totalPrice}</div>
                   <button 
                     className="px-3 py-1 border border-black text-black rounded" 
                     onClick={() => dispatch(decreaseQuantity({ id: item.id, price: item.price }))}
                   >-</button>
-                  <span className="px-3 py-1 bg-gray-200 text-gray-800 rounded">{item.quantity}</span> {/* نمایش تعداد محصول */}
+                  <span className="px-3 py-1 bg-gray-200 text-gray-800 rounded">{item.quantity}</span> 
                   <button 
                     className="px-3 py-1 border border-black text-black rounded mx-2" 
                     onClick={() => dispatch(addItem(item))}
                   >+</button>
                   <button 
-                    className="px-3 py-1 bg-red-500 text-white rounded" 
+                    className="px-3 py-1 bg-red-500 text-white rounded pl-2" 
                     onClick={() => dispatch(removeItem({ id: item.id }))}
                   >Remove</button>
                 </div>
               </li>
             ))}
           </ul>
-          <div className="text-right text-xl font-bold mb-4">
+          <div className='border bg-primaryy rounded-lg p-4 bg-uniq w-20 h-20'>
+          <div className="text-right text-xl font-bold mb-4 p-4 text-white">
             Total: ${totalAmount.toFixed(2)}
           </div>
-          <div className="text-right">
+          <div className="">
             <button 
-              className="px-6 py-2 bg-primaryy text-white rounded" 
+              className="px-6 py-2 bg-orange-100 text-black rounded m-4" 
               onClick={() => alert('Proceeding to checkout')}
             >
               Checkout
@@ -58,6 +60,7 @@ const Cart = () => {
               Clear Cart
             </button>
           </div>
+        </div>
         </div>
       )}
     </div>

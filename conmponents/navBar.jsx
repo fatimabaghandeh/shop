@@ -6,9 +6,9 @@ const NavBar = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   return (
-    <nav className="flex justify-between bg-black item-center p-0 text-white">
+    <nav className="flex justify-between item-center p-0 text-white bg-uniq">
       <Link to="/">
-        <h2 className="p-6 font-bold text-2xl">OnlineShop</h2>
+        <h2 className="p-6 font-bold text-2xl text-primaryy ">OnlineShop</h2>
       </Link>
       <Header />
       <Link to="/cart">

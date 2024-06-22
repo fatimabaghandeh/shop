@@ -54,7 +54,7 @@ const Detail = () => {
         <div>
           <p className="mt-4 text-2xl text-green-700">Price: ${product.price}</p>
           <button 
-            className="inline-flex border-0 bg-primaryy hover:bg-primary px-6 py-2 p-4 rounded-lg text-lg text-white focus:outline-none mt-4"
+            className="inline-flex border-0 bg-uniq px-6 py-2 p-4 rounded-lg text-lg text-white focus:outline-none mt-4"
             onClick={() => dispatch(addItem(product))}
           >
             Add

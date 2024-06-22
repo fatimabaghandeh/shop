@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const links = [
   {
-    title: "product",
+    title: "products",
     pathname: "/product",
   },
   {
@@ -11,29 +11,30 @@ const links = [
     pathname: "/",
   },
   {
-    title: "about",
-    pathname: "/about",
+    title: "carts",
+    pathname: "/cart",
   },
 ];
 
 const Header = () => {
   let location = useLocation();
-
   const { pathname } = location;
 
   return (
-    <header className="flex justify-between items-center p-4 text-white" >
+    <header className="flex justify-between items-center p-4 text-white">
       {links.map((link, index) => (
         <Link
           key={index}
-          className={cs(pathname === link.pathname ? "bg-primaryy rounded-lg px-8 py-2  mx-2" : "hover:bg-primaryy px-8 py-2 rounded-lg space-x-3 ")}
+          className={cs(
+            "rounded-lg px-8 py-2 mx-2",
+            { "bg-orange-100 text-black": pathname === link.pathname },
+            { "hover:bg-primaryy text-white hover:text-black": pathname !== link.pathname }
+          )}
           to={link.pathname}
-
         >
-          <div className="">{link.title}</div>
+          <div>{link.title}</div>
         </Link>
       ))}
-
     </header>
   );
 };
