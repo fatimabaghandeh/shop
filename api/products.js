@@ -19,5 +19,3 @@ export {getProducts};
 
 getProducts()
 export default URL;
-
-

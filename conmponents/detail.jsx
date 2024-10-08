@@ -50,7 +50,7 @@ const Detail = () => {
       </div>
       <div className="mx-auto my-8">
         <h1 className="font-bold text-4xl">{product.title}</h1>
-        <p className="mr-6">{product.description}</p>
+        <p className="mr-6">{product.subtitle}</p>
         <div>
           <p className="mt-4 text-2xl text-green-700">Price: ${product.price}</p>
           <button 
