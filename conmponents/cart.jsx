@@ -8,23 +8,28 @@ const Cart = () => {
   const { items, totalQuantity, totalAmount } = useSelector(state => state.cart);
 
   return (
-    <div className="p-6 bg-orange-100">
+    <div className="p-2 m-4">
       {totalQuantity === 0 ? (
         <div className="text-center">Your cart is empty.</div>
       ) : (
-        <div className='flex'>
-          <ul className="mb-6">
+        <div className=''>
+          <ul className="mb-6 ">
             {items.map(item => (
-              <li key={item.id} className="flex justify-between items-center bg-white border p-4 rounded-lg m-4">
+              <li key={item.id} className="flex justify-between items-center bg-white  p-4 shadow-md rounded-lg m-4">
                 <div className="flex items-center">
                   <img className=" w-full max-h-36 object-contain" src={item.image} alt={item.title} />
                   <div>
-                    <h3 className="text-xl">{item.title}</h3>
+                    <h3 className="text-xs">{item.title}</h3>
+                    <div className="text-gray-700 p-4"> ${item.totalPrice}</div>
+
                   
                   </div>
                 </div>
-                <div className="flex items-center ">
-                <div className="text-gray-700 p-4"> ${item.totalPrice}</div>
+                <div className="flex flex-col items-center ">
+                <button 
+                    className="px-3 py-1   hover:bg-red-200 rounded pl-2" 
+                    onClick={() => dispatch(removeItem({ id: item.id }))}
+                  >×</button>
                   <button 
                     className="px-3 py-1 border border-black text-black rounded" 
                     onClick={() => dispatch(decreaseQuantity({ id: item.id, price: item.price }))}
@@ -34,27 +39,24 @@ const Cart = () => {
                     className="px-3 py-1 border border-black text-black rounded mx-2" 
                     onClick={() => dispatch(addItem(item))}
                   >+</button>
-                  <button 
-                    className="px-3 py-1 bg-red-500 text-white rounded pl-2" 
-                    onClick={() => dispatch(removeItem({ id: item.id }))}
-                  >Remove</button>
+                 
                 </div>
               </li>
             ))}
           </ul>
-          <div className='border bg-primaryy rounded-lg p-4 bg-uniq w-20 h-20'>
-          <div className="text-right text-xl font-bold mb-4 p-4 text-white">
+          <div className='bg-gray rounded-lg p-4 shadow-md m-4 w-20 h-20 flex justify-between'>
+          <div className="text-right text-xl font-bold mb-4 p-4 text-block">
             Total: ${totalAmount.toFixed(2)}
           </div>
-          <div className="">
+          <div className=" ">
             <button 
-              className="px-6 py-2 bg-orange-100 text-black rounded m-4" 
+              className="px-6  py-2 border text-black rounded m-4 hover:bg-green-200" 
               onClick={() => alert('Proceeding to checkout')}
             >
               Checkout
             </button>
             <button 
-              className="px-6 py-2 bg-red-500 text-white rounded ml-4" 
+              className="px-6 py-2 border text-black rounded m-4 hover:bg-red-100" 
               onClick={() => dispatch(clearCart())}
             >
               Clear Cart

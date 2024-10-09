@@ -8,9 +8,8 @@ const NavBar = () => {
   return (
     <nav className="flex justify-between item-center p-0 text-white bg-uniq">
       <Link to="/">
-        <h2 className="p-6 font-bold text-2xl text-primaryy ">OnlineShop</h2>
+        <h2 className="p-6 font-bold text-xl text-primaryy ">OnlineShop</h2>
       </Link>
-      <Header />
       <Link to="/cart">
         <div className="flex p-4">
           <div>

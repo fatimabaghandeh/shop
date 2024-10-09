@@ -44,12 +44,12 @@ const Detail = () => {
   }
 
   return (
-    <div className="flex justify-center m-4">
-      <div className="mx-auto my-8 mr-4">
-        <img className="m-4" alt={product.title} src={product.image} style={{ maxWidth: '250px', height: 'auto' }} />
+    <div className="flex justify-center bg-white rounded-lg shadow-lg  w-auto m-4">
+      <div className="mx-auto  my-8 mr-4">
+        <img className="m-4" alt={product.title} src={product.image} style={{ maxWidth: '180px', height: 'auto' }} />
       </div>
       <div className="mx-auto my-8">
-        <h1 className="font-bold text-4xl">{product.title}</h1>
+        <h1 className="font-bold text-xl">{product.title}</h1>
         <p className="mr-6">{product.subtitle}</p>
         <div>
           <p className="mt-4 text-2xl text-green-700">Price: ${product.price}</p>
