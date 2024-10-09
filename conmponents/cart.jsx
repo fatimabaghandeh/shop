@@ -8,7 +8,7 @@ const Cart = () => {
   const { items, totalQuantity, totalAmount } = useSelector(state => state.cart);
 
   return (
-    <div className="p-2 m-4">
+    <div className="p-2 m-4 ">
       {totalQuantity === 0 ? (
         <div className="text-center">Your cart is empty.</div>
       ) : (
@@ -17,10 +17,10 @@ const Cart = () => {
             {items.map(item => (
               <li key={item.id} className="flex justify-between items-center bg-white  p-4 shadow-md rounded-lg m-4">
                 <div className="flex items-center">
-                  <img className=" w-full max-h-36 object-contain" src={item.image} alt={item.title} />
+                  <img className=" w-full m-4 max-h-36 object-contain" src={item.image} alt={item.title} />
                   <div>
                     <h3 className="text-xs">{item.title}</h3>
-                    <div className="text-gray-700 p-4"> ${item.totalPrice}</div>
+                    <div className="font-bold text-green-700"> ${item.totalPrice}</div>
 
                   
                   </div>
@@ -44,19 +44,19 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-          <div className='bg-gray rounded-lg p-4 shadow-md m-4 w-20 h-20 flex justify-between'>
-          <div className="text-right text-xl font-bold mb-4 p-4 text-block">
+          <div className=' bg-white rounded-lg p-4 shadow-md m-4 w-20 h-20 flex justify-between'>
+          <div className="text-right  text-xl font-bold mb-4 p-4 text-block">
             Total: ${totalAmount.toFixed(2)}
           </div>
           <div className=" ">
             <button 
-              className="px-6  py-2 border text-black rounded m-4 hover:bg-green-200" 
+              className="px-6  py-2 border text-black rounded m-4 border-black hover:bg-primarygray" 
               onClick={() => alert('Proceeding to checkout')}
             >
               Checkout
             </button>
             <button 
-              className="px-6 py-2 border text-black rounded m-4 hover:bg-red-100" 
+              className="px-6  py-2 border text-black rounded m-4 border-black hover:bg-primarygray" 
               onClick={() => dispatch(clearCart())}
             >
               Clear Cart
