@@ -1,0 +1,16 @@
+{
+    "short_name": "Lunita Store",
+    "name": "Lunita Store, an onlineShop",
+    "icons": [
+      {
+        "src": "icon.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#f3f4f6",
+    "display": "standalone",
+    "theme_color": "#164F46"
+  }
+  
