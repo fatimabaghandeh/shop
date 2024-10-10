@@ -9,8 +9,8 @@ import { store } from '../store/store';
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/serviceWorker.js")
+    navigator.serviceWorker.register("/src/serviceWorker.js")
+
       .then((registration) => {
         console.log("ServiceWorker registered: ", registration);
       })

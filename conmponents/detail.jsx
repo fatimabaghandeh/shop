@@ -44,15 +44,15 @@ const Detail = () => {
   }
 
   return (
-    <div className="flex justify-center bg-white rounded-lg shadow-lg  w-auto m-4">
+    <div className="flex p-6 justify-center bg-white rounded-lg shadow-lg  w-auto m-4">
       <div className="mx-auto  my-8 mr-4">
         <img className="m-4" alt={product.title} src={product.image} style={{ maxWidth: '180px', height: 'auto' }} />
       </div>
       <div className="mx-auto my-8">
-        <h1 className="font-bold text-xl">{product.title}</h1>
+        <h1 className=" text-xl">{product.title}</h1>
         <p className="mr-6">{product.subtitle}</p>
         <div>
-          <p className="mt-4 text-2xl text-green-700">Price: ${product.price}</p>
+          <p className="mt-4 text-xl font-bold text-green-700">Price: ${product.price}</p>
           <button 
             className="inline-flex border-0 bg-uniq px-6 py-2 p-4 rounded-lg text-lg text-white focus:outline-none mt-4"
             onClick={() => dispatch(addItem(product))}

@@ -1,5 +1,5 @@
 const CACHE_NAME = "lunita-store-cache";
-const urlsToCache = ["/", "/index.html"];
+const urlsToCache = ["/", "/src/main.jsx", "/index.html"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
