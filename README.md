@@ -16,14 +16,7 @@ This **Online Shop** is a full-featured e-commerce application built with **Reac
 - **Routing with React Router**: Smooth navigation across pages.
 - **Responsive Design**: Styled with Tailwind CSS for a modern, adaptive layout.
 
-## 🛠️ Technologies Used
 
-- **React**
-- **Redux Toolkit** (for state management)
-- **React Query** (for data fetching)
-- **React Router** (for navigation)
-- **Tailwind CSS** (for styling)
-- **Deployment**: Vercel
 
 ## 🚀 Getting Started
 
