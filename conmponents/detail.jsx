@@ -49,7 +49,7 @@ const Detail = () => {
         <img className="m-4" alt={product.title} src={product.image} style={{ maxWidth: '180px', height: 'auto' }} />
       </div>
       <div className="mx-auto my-8">
-        <h1 className=" text-xl">{product.title}</h1>
+        <h1 className="text-xl">{product.title}</h1>
         <p className="mr-6">{product.subtitle}</p>
         <div>
           <p className="mt-4 text-xl font-bold text-green-700">Price: ${product.price}</p>
