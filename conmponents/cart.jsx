@@ -17,7 +17,7 @@ const Cart = () => {
             {items.map(item => (
               <li key={item.id} className="flex justify-between items-center bg-white  p-4 shadow-md rounded-lg m-4">
                 <div className="flex items-center">
-                  <img className=" w-full m-4 max-h-36 object-contain" src={item.image} alt={item.title} />
+                  <img className=" m-4  w-full h-48" src={item.image} alt={item.title} />
                   <div>
                     <h3 className="text-xs">{item.title}</h3>
                     <div className="font-bold text-green-700"> ${item.totalPrice}</div>
